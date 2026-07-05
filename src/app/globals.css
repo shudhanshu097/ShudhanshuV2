@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0a0a;
+  --bg-surface: #141414;
+  --bg-elevated: #1c1c1c;
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --border: rgba(255, 255, 255, 0.08);
+  --accent: #e4e4e7;
+}
+
+.light {
+  --bg: #f3ede4;
+  --bg-surface: #ede6dc;
+  --bg-elevated: #e5ddd2;
+  --text: #1c1917;
+  --text-muted: #57534e;
+  --border: rgba(28, 25, 23, 0.1);
+  --accent: #44403c;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.72s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.58s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.58s cubic-bezier(0.4, 0, 0.2, 1),
+    fill 0.58s cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 0.58s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.58s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+section[id] {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+.gpu-layer {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.gallery-figure {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-figure:hover {
+  transform: scale(1.02) translate3d(0, -6px, 0);
+}
+
+.theme-toggle {
+  transition:
+    background-color 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.theme-toggle:active {
+  transform: scale(0.96) translateZ(0);
+}
+
+.skill-glide {
+  transition:
+    background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-glide:hover {
+  border-color: color-mix(in srgb, var(--text) 18%, transparent);
+  background: var(--bg-elevated);
+  box-shadow: 0 10px 28px -18px rgba(0, 0, 0, 0.55);
+}
+
+.skill-glide-shine {
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    color-mix(in srgb, var(--text) 8%, transparent) 50%,
+    transparent 65%
+  );
+  transform: translateX(-120%);
+  animation: none;
+}
+
+.skill-glide:hover .skill-glide-shine {
+  animation: skill-glide-surf 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes skill-glide-surf {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.edge-glow-hover {
+  position: relative;
+  overflow: hidden;
+  transition:
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.edge-glow-hover:hover {
+  border-color: color-mix(in srgb, var(--glow) 38%, transparent);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--glow) 45%, transparent),
+    inset 0 2px 36px color-mix(in srgb, var(--glow) 20%, transparent),
+    inset 0 -2px 28px color-mix(in srgb, var(--glow) 14%, transparent),
+    inset 0 0 56px color-mix(in srgb, var(--glow) 9%, transparent);
+}
+
+.dashboard-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 50% at 50% 0%,
+    color-mix(in srgb, var(--glow) 12%, transparent),
+    transparent 65%
+  );
+}
+
+@keyframes francisca-drift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-francisca-drift {
+  animation: francisca-drift 40s linear infinite;
+  transform: translateZ(0);
+}
+
+@keyframes soft-drift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-soft-drift {
+  animation: soft-drift 28s linear infinite;
+  width: max-content;
+}
+
+@keyframes name-drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(18px);
+  }
+}
+
+.animate-name-drift {
+  animation: name-drift 6s ease-in-out infinite;
+}
+
+::selection {
+  background: rgba(120, 113, 108, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-soft-drift,
+  .animate-francisca-drift,
+  .animate-name-drift {
+    animation: none;
+  }
+
+  .animate-francisca-drift {
+    transform: none;
+  }
+
+  .skill-glide:hover .skill-glide-shine {
+    animation: none;
+  }
+}
