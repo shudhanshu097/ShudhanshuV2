@@ -117,7 +117,7 @@ export const siteConfig = {
   avatar: assetPath("/photos/portrait.png"),
   heroPortrait: assetPath("/photos/portrait.png"),
   photos: [
-    assetPath("/photos/hero-tree.jpg"),
+    assetPath("/photos/hero-pushup.jpg"),
     assetPath("/photos/hero-dog-v2.jpg"),
     assetPath("/photos/hero-hiker.jpg"),
     assetPath("/photos/hero-peaks.jpg"),
