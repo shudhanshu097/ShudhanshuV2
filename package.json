@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:gh": "GITHUB_PAGES=true next build",
+    "deploy:gh": "npm run build:gh && gh-pages -d out -t true",
     "start": "next start",
     "lint": "eslint"
   },
@@ -25,6 +27,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
+    "gh-pages": "^6.3.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
