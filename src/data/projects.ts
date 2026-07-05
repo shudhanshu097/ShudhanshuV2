@@ -1,3 +1,5 @@
+import { assetPath } from "@/lib/asset-path";
+
 export type Project = {
   slug: string;
   title: string;
@@ -111,13 +113,13 @@ export const siteConfig = {
   personalEmail: "shudhanshuj097@gmail.com",
   collegeEmail: "ipm25125@iimj.ac.in",
   phone: "+91 6306785451",
-  resumePath: "/resume/Shudhanshu_Jaiswal_CV.pdf",
-  avatar: "/photos/portrait.png",
-  heroPortrait: "/photos/portrait.png",
+  resumePath: assetPath("/resume/Shudhanshu_Jaiswal_CV.pdf"),
+  avatar: assetPath("/photos/portrait.png"),
+  heroPortrait: assetPath("/photos/portrait.png"),
   photos: [
-    "/photos/hero-tree.jpg",
-    "/photos/hero-dog-v2.jpg",
-    "/photos/hero-hiker.jpg",
-    "/photos/hero-peaks.jpg",
+    assetPath("/photos/hero-tree.jpg"),
+    assetPath("/photos/hero-dog-v2.jpg"),
+    assetPath("/photos/hero-hiker.jpg"),
+    assetPath("/photos/hero-peaks.jpg"),
   ],
 };
