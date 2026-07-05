@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useScrollToSection } from "@/components/smooth-scroll";
+import { isHomePath, routePath } from "@/lib/asset-path";
 import { siteConfig } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
@@ -19,12 +20,11 @@ const sections = [
 
 export function DockNav() {
   const pathname = usePathname();
-  const router = useRouter();
   const scrollTo = useScrollToSection();
   const [hidden, setHidden] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState<string>("home");
-  const onHome = pathname === "/";
+  const onHome = isHomePath(pathname);
 
   useEffect(() => {
     setMounted(true);
@@ -70,11 +70,11 @@ export function DockNav() {
     (id: string) => {
       if (onHome) {
         scrollTo(id);
-      } else {
-        router.push(`/#${id}`);
+        return;
       }
+      window.location.href = `${routePath("/")}#${id}`;
     },
-    [onHome, router, scrollTo]
+    [onHome, scrollTo]
   );
 
   const toggle = useCallback(() => {

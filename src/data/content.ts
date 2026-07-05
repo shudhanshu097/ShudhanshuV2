@@ -7,10 +7,11 @@ export const aboutCopy = {
 };
 
 export const quoteCopy = {
-  sanskrit: "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।",
+  lead: "Mirror mirror on the wall,",
   lines: [
-    "You have a right to perform your prescribed duty,",
-    "but you are not entitled to the fruits of action.",
+    "I'll always get up after I fall.",
+    "And whether run, walk or have to crawl",
+    "I'll set my goals and achieve them all.",
   ],
 };
 

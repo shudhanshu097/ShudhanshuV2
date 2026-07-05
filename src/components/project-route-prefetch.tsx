@@ -3,14 +3,15 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { projects } from "@/data/projects";
+import { routePath } from "@/lib/asset-path";
 
 export function ProjectRoutePrefetch() {
   const router = useRouter();
 
   useEffect(() => {
     const warm = () => {
-      router.prefetch("/");
-      projects.forEach((p) => router.prefetch(`/projects/${p.slug}`));
+      router.prefetch(routePath("/"));
+      projects.forEach((p) => router.prefetch(routePath(`/projects/${p.slug}/`)));
     };
 
     if (typeof window.requestIdleCallback === "function") {

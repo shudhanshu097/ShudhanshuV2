@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ProjectLink } from "@/components/project-link";
+import { HomeSectionLink } from "@/components/home-section-link";
 import { notFound } from "next/navigation";
 import { NextProjectBridge } from "@/components/next-project-bridge";
 import { ProjectDetailVisuals } from "@/components/projects/project-detail-visuals";
@@ -53,9 +53,9 @@ export default async function ProjectPage({ params }: Props) {
     <>
       <main className="mx-auto max-w-3xl px-6 py-24 pb-40">
         <nav className="mb-10 text-sm text-[var(--text-muted)]">
-          <Link href="/#work" scroll={false} className="hover:text-[var(--text)]">
+          <HomeSectionLink section="work" className="hover:text-[var(--text)]">
             Work
-          </Link>
+          </HomeSectionLink>
           <span className="mx-2">→</span>
           <span className="text-[var(--text)]">{project.title}</span>
         </nav>
@@ -145,13 +145,12 @@ export default async function ProjectPage({ params }: Props) {
               {next.tag} →
             </ProjectLink>
           ) : (
-            <Link
-              href="/#leadership"
-              scroll={false}
+            <HomeSectionLink
+              section="leadership"
               className="text-[var(--text-muted)] hover:text-[var(--text)]"
             >
               Leadership →
-            </Link>
+            </HomeSectionLink>
           )}
         </div>
       </main>
